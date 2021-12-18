@@ -1,0 +1,34 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+import entity.User;
+
+public class UserDAO {   
+    
+	jdbcController jdbcController = new jdbcController();
+	
+    public boolean insertUser(User user) throws SQLException {
+    	String sql = "INSERT INTO user (firstname, lastname, mobile, email, password, image, registerAt, lastLogin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		jdbcController.connect();
+    	return false;
+    }
+    
+    public List<User> listAllUser() {
+    	return null;
+    }
+    
+    public boolean updateUser(User user) {
+    	return false;
+    }
+    
+    public boolean deleteUser(User user) {
+    	return false;
+    }
+    
+    public User getUser(int id) {
+    	return null;
+    }
+}

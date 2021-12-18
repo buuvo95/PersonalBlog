@@ -1,0 +1,6 @@
+package frontend;
+
+public class Snippet {
+	org.hibernate.console.HibernateConsoleRuntimeException: Could not load AnnotationConfiguration
+}
+

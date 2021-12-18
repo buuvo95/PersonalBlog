@@ -1,0 +1,56 @@
+package dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class JpaDAO<E> {
+	private static EntityManagerFactory entityManagerFactory;
+	
+	static {
+		entityManagerFactory = Persistence.createEntityManagerFactory("PersonalBlog");
+	}
+	
+	public JpaDAO() {
+		
+	}
+	
+	public E Create(E entity) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		entityManager.persist(entity);
+		entityManager.flush();
+		entityManager.refresh(entity);
+		
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+		
+		return entity;
+	}
+	
+	public E update(E entity) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		entity = entityManager.merge(entity);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		return entity;
+	}
+	
+	public E find(Class<E> type, Object id) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		E entity = entityManager.find(type, id);
+		
+		if (entity != null) {
+			entityManager.refresh(entity);
+		}
+		entityManager.close();
+		
+		return entity;		
+	}
+}	

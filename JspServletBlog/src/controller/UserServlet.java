@@ -1,0 +1,14 @@
+package controller;
+
+import javax.servlet.http.HttpServlet;
+
+import dao.UserDAO;
+
+public class UserServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private UserDAO userDAO;
+	
+	public void init() {
+		
+	}
+}

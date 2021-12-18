@@ -1,0 +1,45 @@
+package dao;
+
+import java.util.List;
+
+import entity.User;
+
+public class UserDAO extends JpaDAO<User> implements GenericDAO<E> {
+
+	@Override
+	public User create(User t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User update(User t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User get(Object id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Object id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<User> listall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

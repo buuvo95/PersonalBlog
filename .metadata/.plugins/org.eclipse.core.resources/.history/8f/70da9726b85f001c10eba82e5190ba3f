@@ -1,0 +1,28 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.Test;
+
+import dao.UserDAO;
+
+class UserDAOTest {
+	
+	private static UserDAO userDAO;
+	
+	@BeforeClass
+	public static void setUpClass() throws Exception {
+		userDAO = new UserDAO();
+	}
+	
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+	
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		userDAO.close();
+	}
+
+}
