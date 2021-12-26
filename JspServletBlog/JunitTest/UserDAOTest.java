@@ -22,23 +22,37 @@ class UserDAOTest {
 	void testCreateUser() throws SQLException {
 		userDAO = new UserDAO();
 		User user = new User();
-		user.setFirstname("First");
-		user.setLastname("Last");
-		user.setMobile("0123456789");
-		user.setEmail("Test@gmail.com");
+		user.setFirstname("First1");
+		user.setLastname("Last1");
+		user.setMobile("01234567891");
+		user.setEmail("Test1@gmail.com");
 		user.setPassword("123123");
+		//user.setImage(null);
+		user.setRegisterAt("12212021");
 		boolean created = userDAO.insertUser(user);
 				
-		assertEquals(true, created);
+		assertEquals(created, true);
 	}
 	
 	@Test
 	void testListUser() throws SQLException {
 		userDAO = new UserDAO();
 		
-		List<User> listUser = userDAO.listAllUser();
-	
+		List<User> listUser = userDAO.listAllUsers();
+		
 		assertTrue(listUser.size() > 0);
+	}
+	
+	@Test
+	void testDeleteUser() throws SQLException {
+		long id = 6;
+		
+		userDAO = new UserDAO();
+		User existUser = userDAO.getUser(id);
+		boolean deletedUser = userDAO.deleteUser(existUser);
+		
+		assertEquals(deletedUser, true);
+		
 	}
 	
 }

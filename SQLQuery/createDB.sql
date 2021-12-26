@@ -1,6 +1,6 @@
 CREATE DATABASE personalblog;
 USE personalblog;
- 
+
 CREATE TABLE `user` (
 	`id` BIGINT NOT NULL auto_increment,
     `firstname` VARCHAR(30) NULL DEFAULT NULL,
@@ -11,9 +11,12 @@ CREATE TABLE `user` (
     `image` blob,
     `registerAt` VARCHAR(20) NOT NULL,
     `lastLogin` VARCHAR(20) NULL DEFAULT NULL,
+    `activate` VARCHAR(1) NOT NULL DEFAULT '0',
+    `hashcode` VARCHAR(100) NULL DEFAULT NULL,
 	primary key(`id`),
     unique index `uq_mobile` (`mobile` ASC),
-    unique index `uq_email` (`email` ASC)
+    unique index `uq_email` (`email` ASC),
+    unique index `uq_hashcode` (`hashcode` ASC)
 );
 
 CREATE TABLE `post` (

@@ -1,6 +1,7 @@
 package entity;
 // Generated Dec 17, 2021, 3:50:40 PM by Hibernate Tools 5.4.32.Final
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,10 @@ import java.util.Set;
  */
 public class User implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long id;
 	private String firstname;
 	private String lastname;
@@ -19,7 +24,28 @@ public class User implements java.io.Serializable {
 	private byte[] image;
 	private String registerAt;
 	private String lastLogin;
-	private Set posts = new HashSet(0);
+	private String activate;
+	private String hashcode;
+
+	public String getActivate() {
+		return activate;
+	}
+
+	public void setActivate(String activate) {
+		this.activate = activate;
+	}
+
+	public String getHashcode() {
+		return hashcode;
+	}
+
+	public void setHashcode(String hashcode) {
+		this.hashcode = hashcode;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public User() {
 	}
@@ -31,6 +57,18 @@ public class User implements java.io.Serializable {
 		this.registerAt = registerAt;
 	}
 	
+	public User(long id, String firstname, String lastname, String mobile, String email, String password,
+			String registerAt, String lastLogin) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.mobile = mobile;
+		this.email = email;
+		this.password = password;
+		this.registerAt = registerAt;
+		this.lastLogin = lastLogin;
+	}
+
 	public User(long id, String firstname, String lastname, String mobile, String email, String password, byte[] image,
 			String registerAt, String lastLogin) {
 		this.id = id;
@@ -42,20 +80,6 @@ public class User implements java.io.Serializable {
 		this.image = image;
 		this.registerAt = registerAt;
 		this.lastLogin = lastLogin;
-	}
-
-	public User(long id, String firstname, String lastname, String mobile, String email, String password, byte[] image,
-			String registerAt, String lastLogin, Set posts) {
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.mobile = mobile;
-		this.email = email;
-		this.password = password;
-		this.image = image;
-		this.registerAt = registerAt;
-		this.lastLogin = lastLogin;
-		this.posts = posts;
 	}
 
 	public long getId() {
@@ -128,14 +152,6 @@ public class User implements java.io.Serializable {
 
 	public void setLastLogin(String lastLogin) {
 		this.lastLogin = lastLogin;
-	}
-
-	public Set getPosts() {
-		return this.posts;
-	}
-
-	public void setPosts(Set posts) {
-		this.posts = posts;
 	}
 
 }
